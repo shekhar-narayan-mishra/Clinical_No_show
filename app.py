@@ -10,6 +10,28 @@ from src.predict import predict
 # Load trained model
 model = joblib.load("models/noshow_model.pkl")
 
+# ---- SIDEBAR CODE FOR SAMPLE DATA ----
+with st.sidebar:
+    st.header("Sample Data for Testing")
+    st.write("Download the sample dataset below to test out the prediction system.")
+    
+    try:
+        sample_df = pd.read_csv("sample_data.csv")
+        # Provide download button
+        csv_data = sample_df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="Download Sample CSV",
+            data=csv_data,
+            file_name="sample_data.csv",
+            mime="text/csv",
+        )
+        
+        st.subheader("Sample Data Preview")
+        st.dataframe(sample_df)
+    except FileNotFoundError:
+        st.write("Sample data file not found.")
+# --------------------------------------
+
 st.title("Clinical Appointment No-Show Prediction System")
 
 uploaded_file = st.file_uploader("Upload Appointment CSV")

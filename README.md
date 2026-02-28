@@ -85,6 +85,39 @@ The model prioritizes recall for the No-Show class to minimize missed high-risk 
 
 ## 🚀 How to Run Locally
 
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Imposon/Clinical_No_show.git
+cd Clinical_No_show
+```
+
+### 2️⃣ Create a Virtual Environment
+
+Make sure Python 3.9 or above is installed.
+```bash
+python3 -m venv venv
+```
+Activate the environment:
+Mac/Linux
+```bash
+source venv/bin/activate
+```
+Windows
+```bash
+venv\Scripts\activate
+```
+
+### 3️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
+```
+
+### 4️⃣ Run the Application
+```bash
 streamlit run app.py
+```
+The app will open in your browser at:
+```bash
+http://localhost:8501
+```
